@@ -1,4 +1,7 @@
+import { add } from "lodash";
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { addAccount } from "./Actions"
 
 class AddAccount extends Component {
   constructor(props) {
@@ -6,7 +9,7 @@ class AddAccount extends Component {
     this.state = {
       account_name: "",
       account_number: "",
-      account_type: "savings",
+      account_type: "",
       bank_name: "",
       bank_branch: "",
     };
@@ -19,7 +22,7 @@ class AddAccount extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addAccount(this.state);
+    this.props.addNewAccount(this.state);
     this.setState({
       account_name: "",
       account_number: "",
@@ -136,4 +139,12 @@ class AddAccount extends Component {
   }
 }
 
-export default AddAccount;
+const mapDispatchToProps = {
+  
+  addNewAccount: addAccount
+
+}
+
+
+
+export default connect (null, mapDispatchToProps)(AddAccount);
