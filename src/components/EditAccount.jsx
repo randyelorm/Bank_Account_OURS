@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import {EditAccountAction} from "./Actions"
 
 class EditAccount extends Component {
   constructor(props) {
@@ -25,7 +26,11 @@ class EditAccount extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.editAccount(this.id, this.state);
+   
+    this.props.editAccount(this.id, this.state)
+    
+   
+    
     this.setState({
       account_name: "",
       account_number: "",
@@ -154,4 +159,13 @@ const mapStateToProps =(state, ownprops)=> {
 
  }
 
-export default connect(mapStateToProps) (EditAccount);
+
+
+ const mapDispatchToProps = {
+  editAccount:EditAccountAction
+
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (EditAccount);

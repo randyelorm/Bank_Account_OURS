@@ -105,7 +105,7 @@ class AddAccount extends Component {
                       onChange={this.handleChange}
                       value={this.state.account_type}
                     >
-                      <option value="Savings">Select account type</option>
+                      <option value="">Select account type</option>
                       <option value="Savings">Savings</option>
                       <option value="Current">Current</option>
                     </select>
