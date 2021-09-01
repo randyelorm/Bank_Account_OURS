@@ -35,7 +35,10 @@ const AccountReducer = (state = intialState, action ) => {
                         (each_item_in_array)=> {
                             return each_item_in_array.id !== action.payload
                         })
-            
+                    //    if the id's we loop through is not equal to the one from the payload,
+                    // let them stay on the screen. But if it's equal, let them go.
+                    // So deleted accounts are those who passed the test. 
+
                         return {accounts: notDeletedAccounts}
 
         default: 
